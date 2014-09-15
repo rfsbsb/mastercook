@@ -1,0 +1,21 @@
+<div class="col-sm-6 col-sm-offset-2">
+  <h2><%= t('Sign up') %></h2>
+
+  <%= simple_form_for(resource, html: { class: 'form-horizontal well' }, :as => resource_name, :url => registration_path(resource_name)) do |f| %>
+    <%= f.error_notification %>
+
+    <div class="form-inputs">
+      <%= f.input :email, :required => true, :autofocus => true, :wrapper => :bootstrap3 %>
+      <%= f.input :password, :required => true, :wrapper => :bootstrap3 %>
+      <%= f.input :password_confirmation, :required => true, :wrapper => :bootstrap3 %>
+    </div>
+
+    <div class="form-group">
+      <div class="col-sm-offset-2">
+        <%= f.button :submit, t("Sign up"), :class => "btn-success" %>
+      </div>
+    </div>
+  <% end %>
+
+  <%= render "devise/shared/links" %>
+</div>
