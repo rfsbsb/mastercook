@@ -5,6 +5,14 @@ Rails.application.routes.draw do
   root 'pages#home'
 
   devise_for :users
+  devise_scope :user do
+    post 'login' => 'sessions#create', :as => :login
+    delete 'logout' => 'sessions#destroy', :as => :logout
+  end
+  # devise_for :users, controllers: {
+  #   sessions: 'sessions'
+  # }
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

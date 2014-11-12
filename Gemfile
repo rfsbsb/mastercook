@@ -5,8 +5,9 @@ source 'https://rubygems.org'
 gem 'rails', '4.1.5'
 # Use sqlite3 as the database for Active Record
 gem 'sqlite3'
+
 # Use SCSS for stylesheets
-gem 'sass-rails', '~> 4.0.3'
+gem 'sass-rails'
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'
 # Use CoffeeScript for .js.coffee assets and views
@@ -38,7 +39,7 @@ gem 'spring',        group: :development
 # Use debugger
 # gem 'debugger', group: [:development, :test]
 
-gem 'devise'
+gem 'devise', '~> 3.4.1'
 gem 'jquery-ui-rails'
 gem 'bootstrap-sass'
 gem 'compass-rails'
@@ -48,3 +49,4 @@ gem 'quiet_assets'
 gem 'rails_layout'
 gem 'simple_form'
 gem "paperclip"
+gem 'simple_token_authentication'

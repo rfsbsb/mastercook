@@ -4,7 +4,7 @@ class CreateOrders < ActiveRecord::Migration
       t.references :product, index: true
       t.references :user, index: true
       t.decimal :amount
-
+      t.string :payment_mode
       t.timestamps
     end
   end
