@@ -2,6 +2,10 @@ class OrdersController < ApplicationController
   before_action :set_order, only: [:show, :edit, :update, :destroy]
   before_filter :authenticate_user!
 
+  def index
+    @orders = current_user.orders.where(payment_mode: [nil, ""])
+  end
+
   def new
     @order = current_user.orders.new
   end
@@ -32,6 +36,23 @@ class OrdersController < ApplicationController
         format.html { render :edit }
         format.json { render json: @order.errors, status: :unprocessable_entity }
       end
+    end
+  end
+
+  def pay
+    orders = current_user.orders.where(payment_mode: [nil, ""])
+
+    @order = nil
+    if orders.length > 0
+      orders.each do |order|
+        order.payment_mode = params[:payment_mode]
+        order.save
+      end
+      @order = orders.first
+    end
+
+    respond_to do |format|
+      format.json { render :pay, status: :created, location: @order }
     end
   end
 
