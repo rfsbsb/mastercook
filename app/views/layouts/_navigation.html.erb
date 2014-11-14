@@ -10,7 +10,8 @@
 <nav class="collapse navbar-collapse">
   <ul class="nav navbar-nav">
     <% if user_signed_in? %>
-      <li><%= link_to t('Products'), products_path %></li>
+      <li><%= link_to t('Produtos'), products_path %></li>
+      <li><%= link_to t('Pedidos'), orders_path %></li>
     <% else %>
     <% end %>
   </ul>
